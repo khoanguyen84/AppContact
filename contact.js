@@ -67,7 +67,7 @@ function closeModal(){
 }
 
 function changeAvatar(){
-    document.querySelector('.avatar-lg').src = document.querySelector('#avatar').value || '/images/noavatar.jpg';
+    document.querySelector('.avatar-lg').src = document.querySelector('#avatar').value || 'images/noavatar.jpg';
 }
 
 function addContact(){
@@ -91,7 +91,7 @@ function resetModal(){
     document.querySelector('#avatar').value = "";
     document.querySelector('#mobile').value ="";
     document.querySelector('#email').value = "";
-    document.querySelector('.avatar-lg').src = "/images/noavatar.jpg";
+    document.querySelector('.avatar-lg').src = "images/noavatar.jpg";
 
     document.querySelector('#btnUpdate').classList.add('d-none');
     document.querySelector('#btnAdd').classList.remove('d-none');
@@ -150,8 +150,9 @@ function updateContact(){
     contact.avatar = document.querySelector('#avatar').value;
     contact.mobile = document.querySelector('#mobile').value;
     contact.email = document.querySelector('#email').value;
+
     localStorage.setItem(contact_key, JSON.stringify(contacts));
-    
+
     closeModal();
     renderContact();
 }
