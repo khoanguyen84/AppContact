@@ -5,16 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
     <link rel="stylesheet" href="contact.css">
 </head>
 <body>
     <div class="container">
         <div class="row">
-            <h4>Contact</h4>
-            <button class="btn btn-primary">Add</button>
+            <h4 class="heading-4">Contact</h4>
+            <button class="btn btn-primary" onclick="openModal()">
+                <i class="fa-solid fa-person-circle-plus"></i>
+                Add
+            </button>
         </div>
         <div class="row">
-            <table>
+            <table class="table">
                 <thead>
                     <tr>
                         <th>
@@ -27,30 +31,53 @@
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <tbobdy>
-                    <tr>
-                        <td>
-                            <input type="checbox">
-                        </td>
-                        <td>Dũng</td>
-                        <td>
-                            <img src="https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/300.jpg" alt="">
-                        </td>
-                        <td>
-                            0935123123
-                        </td>
-                        <td>
-                            khoa.nguyen@codegym.vn
-                        </td>
-                        <td>
-                            
-                        </td>
-                    </tr>
-                </tbobdy>
+                <tbody>
+                    
+                </tbody>
             </table>
         </div>
     </div>
-
+    <div class="modal-container">
+        <div class="modal">
+            <div class="modal-header">
+                <div class="modal-title">Add contact</div>
+                <div class="close-modal" onclick="closeModal()">&times;</div>
+            </div>
+            <div class="modal-body">
+                <div class="create-contact">
+                    <div class="contact-info">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name">
+                            <input type="hidden" value="0" id="contactId">
+                        </div>
+                        <div class="form-group">
+                            <label for="avatar">Avatar</label>
+                            <input type="url" class="form-control" id="avatar" onchange="changeAvatar()">
+                        </div>
+                        <div class="form-group">
+                            <label for="mobile">Phone number</label>
+                            <input type="tel" class="form-control" id="mobile">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="email"></label>
+                            <button id="btnAdd" class="btn btn-warning mr" onclick="addContact()">Add</button>
+                            <button id="btnUpdate" class="btn btn-primary mr d-none" onclick="updateContact()">Save</button>
+                            <button class="btn btn-danger" onclick="closeModal()">Cancel</button>
+                        </div>
+                    </div>
+                    <div class="preview-avatar">
+                        <img class="avatar-lg" src="/images/noavatar.jpg" alt="">
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
     <script src="contact.js"></script>
 </body>
 </html>
